@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div class="container" style="width: 90%; margin-left: 5%;">
+    <div class="col-md-6" style="background-color: lightgrey; height: 350px;">
+
+    </div>
+  </div>
+</body>
+
+</html>
+<script type="text/javascript">
+  let waiting_passengers = [{
+      id: 1,
+      name: 'Mish',
+      height: '6',
+      skin_colour: 'brown',
+      age: 25,
+      sex: 1
+    },
+    {
+      id: 2,
+      name: 'Beke',
+      height: '5.8',
+      skin_colour: 'brown',
+      age: 22,
+      sex: 0
+    },
+    {
+      id: 3,
+      name: 'Sipho',
+      height: '5.8',
+      skin_colour: 'brown',
+      age: 22,
+      sex: 1
+    },
+    {
+      id: 4,
+      name: 'Mandy',
+      height: '5.8',
+      skin_colour: 'brown',
+      age: 22,
+      sex: 0
+    },
+    {
+      id: 5,
+      name: 'Lloyd',
+      height: '5.8',
+      skin_colour: 'brown',
+      age: 22,
+      sex: 1
+    },
+  ];
+
+
+  let trains = [{
+      number: 1001,
+      direction: 'North',
+      departure_time: '08:00',
+      arrival_time: '09:20',
+      stops: 7,
+      capacity: 3,
+      passengers: [],
+      board: function(waiting_passengers) {
+        this.passengers.push(waiting_passengers);
+      }
+    },
+    {
+      number: 3005,
+      direction: 'South',
+      departure_time: '08:10',
+      arrival_time: '09:05',
+      stops: 5,
+      capacity: 3,
+      passengers: [],
+      board: function(waiting_passengers) {
+        this.passengers.push(waiting_passengers);
+      }
+
+    }
+  ];
+
+
+  // let southTrain = trains[1];
+  // let northTrain = trains[0]
+
+  function Train(data) {
+    this.number = data.number;
+    this.direction = data.direction;
+    this.departure_time = data.departure_time;
+    this.arrival_time = data.arrival_time;
+    this.stops = data.stops;
+    this.capacity = data.capacity;
+    this.passengers = [];
+    this.board = function(waiting_passengers) {
+      this.passengers.push(waiting_passengers);
+    }
+  }
+var southTrain;
+var northTrain;
+  var direction_check = trains[1].direction;
+
+  if (direction_check == 'south') {
+    southTrain = new Train(trains[0]);
+  } else if (direction_check == 'north'){
+    northTrain = new Train(trains[1]);
+  }
+
+  console.log(southTrain);
+
+  var females = [];
+  var males = [];
+
+  for (var i = 0; i < trains.length; i++) {
+
+    var capacity_value = trains[i].capacity;
+
+  for (let i = 0; i < waiting_passengers.length; i++) {
+
+    let p = waiting_passengers[i];
+    if (p.sex===0) { // female
+      northTrain.board(p); //female
+      females.push(p);
+
+      if(females.length>capacity_value){
+        alert('train is full')
+        break;
+      }
+    } else {
+      southTrain.board(p); //male
+      males.push(p);
+      if(males.length>capacity_value){
+        alert('train is full')
+        break;
+    }
+
+
+}
+}
+}
+     debugger;
+
+    // for (var i = 0; i < passengers.length; i++) {
+    //     $('.container').append('')}
+
+</script>
