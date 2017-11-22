@@ -61,7 +61,7 @@
 
   let trains = [{
       number: 1001,
-      direction: 'North',
+      direction: 'north',
       departure_time: '08:00',
       arrival_time: '09:20',
       stops: 7,
@@ -73,7 +73,7 @@
     },
     {
       number: 3005,
-      direction: 'South',
+      direction: 'south',
       departure_time: '08:10',
       arrival_time: '09:05',
       stops: 5,
@@ -87,8 +87,8 @@
   ];
 
 
-  // let southTrain = trains[1];
-  // let northTrain = trains[0]
+   var southTrain = trains[1];
+   var northTrain = trains[0]
 
   function Train(data) {
     this.number = data.number;
@@ -102,17 +102,16 @@
       this.passengers.push(waiting_passengers);
     }
   }
-var southTrain;
-var northTrain;
+// let southTrain;
+// let northTrain;
   var direction_check = trains[1].direction;
 
   if (direction_check == 'south') {
-    southTrain = new Train(trains[0]);
+    let southTrain = new Train(trains[0]);
   } else if (direction_check == 'north'){
-    northTrain = new Train(trains[1]);
+    let northTrain = new Train(trains[1]);
   }
 
-  console.log(southTrain);
 
   var females = [];
   var males = [];
@@ -135,16 +134,15 @@ var northTrain;
     } else {
       southTrain.board(p); //male
       males.push(p);
-      if(males.length>capacity_value){
+      if(males.length>=capacity_value){
         alert('train is full')
         break;
     }
-
-
+debugger;
 }
 }
 }
-     debugger;
+     // debugger;
 
     // for (var i = 0; i < passengers.length; i++) {
     //     $('.container').append('')}
